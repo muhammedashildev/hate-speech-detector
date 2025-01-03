@@ -1,0 +1,105 @@
+{% extends "sfBase.html" %} {% block content %}
+<!--//header-w3l-->
+<!--/w3l-inner-page-breadcrumb-->
+<style>
+	.ideaContent p {
+		text-align: justify;
+	}
+	.ideaContent h4 {
+		margin-top: 20px;
+		text-align: center;
+	}
+	.idea {
+		border-bottom: 1px dotted brown;
+		padding: 20px 0;
+	}
+</style>
+<section class="w3l-inner-page-breadcrumb">
+	<div class="breadcrumb-bg py-5">
+		<div class="container pt-lg-5 pt-md-3 p-lg-4 pb-md-3 my-lg-3">
+			<h2 class="title pt-5"></h2>
+		</div>
+	</div>
+</section>
+<!-- //w3l-inner-page-breadcrumb-->
+<!-- /contact-section -->
+<div class="w3l-contact-10" id="contact">
+	<div class="form-41-mian py-lg-5 py-md-4 py-2">
+		<div class="container">
+			<div class="header-title text-center mx-auto">
+				<h3 class="title-w3l">Posts</h3>
+			</div>
+			<div class="contacts-5-grid-main mt-4">
+				<div class="form-inner-cont">
+					<div class="idea container">
+						<div class="useridea d-flex">
+							<div class="d-flex">
+								<img
+									src="/static/media/{{data.user.document}}"
+									alt=""
+									style="
+										width: 50px;
+										height: 50px;
+										border-radius: 50%;
+										margin-right: 10px;
+									"
+								/>
+								<div class="">
+									<em
+										><strong
+											><a href="/sfViewSf?sfid={{data.user.id}}"
+												>{{data.user.name}}</a
+											></strong
+										><br /><small>{{data.date}}</small></em
+									>
+								</div>
+							</div>
+						</div>
+						<div class="ideaContent container">
+							<h4>{{data.idea}}:</h4>
+							<div class="text-center">
+								<img src="/static/media/{{data.image}}" width="400" style="margin: auto;" alt="">
+							</div>
+							<p class="line-clamp">{{data.desc}}</p>
+							<a href="{{data.url}}">{{data.url}}</a>
+						</div>
+						<form action="" method="post">
+							{% csrf_token %}
+							<div style="display: flex; padding: 10px">
+								<input
+									type="text"
+									name="comment"
+									placeholder="Enter Your Comment..."
+								/>
+								<input
+									type="submit"
+									value="Post"
+									class="bg-primary text-light"
+									style="width: 10%; height: 100px"
+								/>
+							</div>
+						</form>
+						{% for c in comments %}
+						<div
+							class="comment"
+							style="border-bottom: 1px dotted brown; padding: 10px"
+						>
+							<p>{{c.comment}}</p>
+							<h6>
+								<a href="/sfViewSf?sfid={{c.user.id}}">{{c.user.name}}</a>
+							</h6>
+							<small>{{c.date}}</small>
+						</div>
+						{% endfor %}
+						<br /><br />
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //contacts-5-grid -->
+	</div>
+</div>
+
+<!-- //contact-section -->
+<!-- footer -->
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "adminBase.html" %} {% block content %}
+<!--//header-w3l-->
+<!--/w3l-inner-page-breadcrumb-->
+<style>
+	table {
+		width: 100%;
+		margin-top: 20px;
+	}
+	th,
+	td {
+		padding: 10px;
+	}
+	table,
+	th,
+	td {
+		border: 1px solid gray;
+	}
+</style>
+<section class="w3l-inner-page-breadcrumb">
+	<div class="breadcrumb-bg py-5">
+		<div class="container pt-lg-5 pt-md-3 p-lg-4 pb-md-3 my-lg-3">
+			<h2 class="title pt-5">Users</h2>
+		</div>
+	</div>
+</section>
+<!-- //w3l-inner-page-breadcrumb-->
+<!-- /contact-section -->
+<div class="w3l-contact-10" id="contact">
+	<div class="form-41-mian py-lg-5 py-md-4 py-2">
+		<div class="container">
+			<div class="header-title text-center mx-auto">
+				<h6 class="title-subhny mb-1"></h6>
+				<h3 class="title-w3l">Inactive Users</h3>
+				<table>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Phone</th>
+						<th>Address</th>
+						<th>Image</th>
+						<th colspan="2">Action</th>
+					</tr>
+					{% for d in data %}
+					<tr>
+						<td>{{d.id}}</td>
+						<td>{{d.name}}</td>
+						<td>{{d.email}}</td>
+						<td>{{d.phone}}</td>
+						<td>{{d.address}}</td>
+						<td>
+							<a href="/static/media/{{d.document}}" target="_blank"
+								><img src="/static/media/{{d.document}}" width="200" alt=""
+							/></a>
+						</td>
+						<td>
+							<a href="/approveStartUp?id={{d.user.id}}&status=1" class="btn btn-success">Activate</a>
+						</td>
+					</tr>
+					{% endfor %}
+				</table>
+				<div class="mt-5"></div>
+				<h3 class="title-w3l">Active Users</h3>
+				<table>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Phone</th>
+						<th>Address</th>
+						<th>Image</th>
+						<th>Action</th>
+					</tr>
+					{% for d in dataActive %}
+					<tr>
+						<td>{{d.id}}</td>
+						<td>{{d.name}}</td>
+						<td>{{d.email}}</td>
+						<td>{{d.phone}}</td>
+						<td>{{d.address}}</td>
+						<td>
+							<a href="/static/media/{{d.document}}" target="_blank"
+								><img src="/static/media/{{d.document}}" width="200" alt=""
+							/></a>
+						</td>
+						<td>
+							<a href="/approveStartUp?id={{d.user.id}}&status=0" class="btn btn-danger">Deactivate</a>
+						</td>
+					</tr>
+					{% endfor %}
+				</table>
+				<div class="mt-5"></div>
+			</div>
+		</div>
+		<!-- //contacts-5-grid -->
+	</div>
+</div>
+
+<!-- //contact-section -->
+<!-- footer -->
+{% endblock %}
