@@ -1,0 +1,52 @@
+# Bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual environments
+env/
+venv/
+.env/
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Dependency files
+Pipfile.lock
+poetry.lock
+
+# Environment files
+.env
+*.env
+
+# Build and distribution files
+build/
+dist/
+*.egg-info/
+
+# Log files
+*.log
+
+# Test artifacts
+coverage.xml
+*.cover
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+nosetests.xml
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# Compiled libraries
+*.so
+*.dylib
+*.dll
