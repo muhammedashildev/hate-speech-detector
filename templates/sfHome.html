@@ -1,0 +1,158 @@
+{% extends "sfBase.html" %} {% block content %}
+<!--//header-w3l-->
+<!--/w3l-inner-page-breadcrumb-->
+<style>
+	.w3l-inner-page-breadcrumb,
+	.topHead,
+	#contact {
+		/* background-color: rgb(221, 220, 220); */
+		background-color: #d0d3d4;
+	}
+	.user {
+		width: 20%;
+		max-height: 10em;
+		justify-content: space-around;
+	}
+	.user img {
+		width: 120px;
+		height: 120px;
+		margin-top: 15px;
+		border-radius: 50%;
+	}
+	.user .cont {
+		align-items: center;
+		margin-top: 15%;
+	}
+	.ses {
+		display: flex;
+	}
+	img:hover {
+		cursor: pointer;
+	}
+	.content {
+		width: 80%;
+		padding: 20px;
+		border-left: 1px dotted #000;
+		padding-left: 30px;
+	}
+	.useridea img {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		margin-right: 10px;
+	}
+	.ideaContent p {
+		text-align: justify;
+		overflow: hidden;
+	}
+	.ideaContent h4 {
+		margin-top: 20px;
+		text-align: center;
+	}
+	.idea {
+		background-color: #fbfcfc;
+		padding: 20px;
+		border: 1px dashed brown;
+		width: 80%;
+	}
+
+	.line-clamp {
+		display: -webkit-box;
+		-webkit-line-clamp: 4;
+		-webkit-box-orient: vertical;
+	}
+	.search .search__input {
+		display: flex;
+		flex: 1;
+		padding: 10px 50px 10px 20px;
+		height: 48px;
+		font-size: 17px;
+		color: var(--font-color);
+		border: none;
+		font-weight: 400;
+		border-radius: var(--border-radius-full);
+		position: relative;
+		right: 0;
+		background: var(--bg-color);
+		outline: 0;
+		border: 1px solid var(--border-color-light);
+	}
+
+	.search .search__icon {
+		position: absolute;
+		right: 20px;
+		font-size: 15px;
+		top: 15px;
+		cursor: pointer;
+	}
+</style>
+<div class="mt-5 mb-5 topHead"><hr /></div>
+<section class="container-fluid w3l-inner-page-breadcrumb ses">
+	<form class="search position-relative" method="post" style="margin-left: 80%">
+		{% csrf_token %}
+		<input
+			type="search"
+			class="search__input"
+			name="search"
+			placeholder="Search here.."
+			onload="equalWidth()"
+			required=""
+		/>
+		<span class="fas fa-search search__icon"></span>
+	</form>
+</section>
+<!-- //w3l-inner-page-breadcrumb-->
+<!-- /contact-section -->
+<div class="w3l-contact-10" id="contact">
+	<div class="form-41-mian py-lg-5 py-md-4 py-2">
+		<div class="container-fluid d-flex">
+			<div class="user d-flex">
+				<img src="/static/media/{{data.document}}" alt="" onclick="myFun()" />
+
+				<div class="cont">
+					<a href="/sfProfile"
+						><h3>{{data.name}}</h3>
+						<h5>{{data.email}}</h5></a
+					>
+					<a href="/sfViewSelfPost">Posts</a>
+				</div>
+			</div>
+			<div class="mx-5 content">
+				{% for p in post %}
+				<div class="idea container">
+					<div class="useridea d-flex">
+						<img src="/static/media/{{p.user.document}}" alt="" />
+						<div class="">
+							<em
+								><strong
+									><a href="/sfViewSf?sfid={{p.user.id}}"
+										>{{p.user.name}}</a
+									></strong
+								><br /><small>{{p.date}}</small></em
+							>
+						</div>
+					</div>
+					<div class="ideaContent container">
+						<h4>{{p.idea}}:</h4>
+						<div class="text-center">
+							<img src="/static/media/{{p.image}}" width="400" style="margin: auto;" alt="">
+						</div>
+						<p class="line-clamp">{{p.desc}}</p>
+						<a href="/sfViewIdea?post={{p.id}}">Read More</a>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+		<!-- //contacts-5-grid -->
+	</div>
+</div>
+
+<!-- //contact-section -->
+<!-- footer -->
+<script>
+	function myFun() {
+		window.location = '/sfChangeImage';
+	}
+</script>
+{% endblock %}

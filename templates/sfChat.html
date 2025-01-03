@@ -1,0 +1,54 @@
+{% extends "sfBase.html" %} {% block content %}
+<!--//header-w3l-->
+<!--/w3l-inner-page-breadcrumb-->
+<style>
+	table {
+		width: 100%;
+		text-align: center;
+		margin: auto;
+	}
+	table,
+	th,
+	td {
+		border: 1px solid brown;
+		padding: 10px;
+	}
+</style>
+<section class="w3l-inner-page-breadcrumb">
+	<div class="breadcrumb-bg py-5">
+		<div class="container pt-lg-5 pt-md-3 p-lg-4 pb-md-3 my-lg-3">
+			<h2 class="title pt-5"></h2>
+		</div>
+	</div>
+</section>
+<!-- //w3l-inner-page-breadcrumb-->
+<!-- /contact-section -->
+<div class="w3l-contact-10" id="contact">
+	<div class="form-41-mian py-lg-5 py-md-4 py-2">
+		<div class="container">
+			<div class="header-title text-center mx-auto">
+				<h6 class="title-subhny mb-1"></h6>
+				<h3 class="title-w3l">Chats</h3>
+			</div>
+			<div class="contacts-5-grid-main mt-4">
+				<div class="form-inner-cont text-center">
+					<table>
+						{% for d in data %}
+						<tr>
+							{% if d != user %}
+							<a href="sfChatPer?email={{d}}" class="btn btn-info btn-lg btn-block">{{d}}</a>
+							<hr />
+							{% endif %}
+						</tr>
+						{% endfor %}
+					</table>
+				</div>
+			</div>
+		</div>
+		<!-- //contacts-5-grid -->
+	</div>
+</div>
+
+<!-- //contact-section -->
+<!-- footer -->
+{% endblock %}

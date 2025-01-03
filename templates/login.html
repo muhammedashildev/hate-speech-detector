@@ -1,0 +1,56 @@
+{% extends "basePage.html" %} {% block content %}
+<!--//header-w3l-->
+<!--/w3l-inner-page-breadcrumb-->
+<section class="w3l-inner-page-breadcrumb">
+	<div class="breadcrumb-bg py-5">
+		<div class="container pt-lg-5 pt-md-3 p-lg-4 pb-md-3 my-lg-3">
+			<h2 class="title pt-5">Login</h2>
+		</div>
+	</div>
+</section>
+<!-- //w3l-inner-page-breadcrumb-->
+<!-- /contact-section -->
+<div class="w3l-contact-10" id="contact">
+	<div class="form-41-mian py-lg-5 py-md-4 py-2">
+		<div class="container">
+			<div class="contacts-5-grid-main mt-4">
+				<div class="form-inner-cont">
+					<form
+						action="#"
+						method="post"
+						class="signin-form"
+						enctype="multipart/form-data"
+					>
+						{% csrf_token %}
+						<div class="form-grids">
+							<div class="form-input" data-aos="fade-down">
+								<input
+									type="text"
+									name="name"
+									placeholder="UserName *"
+									required=""
+								/>
+							</div>
+							<div class="form-input" data-aos="fade-down">
+								<input
+									type="password"
+									name="password"
+									placeholder="Password *"
+									required
+								/>
+							</div>
+						</div>
+						<div class="text-center mt-3">
+							<button class="btn btn-style btn-primary">LogIn</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- //contacts-5-grid -->
+	</div>
+</div>
+
+<!-- //contact-section -->
+<!-- footer -->
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "sfBase.html" %} {% block content %}
+<!--//header-w3l-->
+<!--/w3l-inner-page-breadcrumb-->
+<section class="w3l-inner-page-breadcrumb">
+	<div class="breadcrumb-bg py-5">
+		<div class="container pt-lg-5 pt-md-3 p-lg-4 pb-md-3 my-lg-3">
+			<h2 class="title pt-5"></h2>
+		</div>
+	</div>
+</section>
+<!-- //w3l-inner-page-breadcrumb-->
+<!-- /contact-section -->
+<div class="w3l-contact-10" id="contact">
+	<div class="form-41-mian py-lg-5 py-md-4 py-2">
+		<div class="container">
+			<div class="header-title text-center mx-auto">
+				<h6 class="title-subhny mb-1">Startup Founder</h6>
+				<h3 class="title-w3l">Profile</h3>
+			</div>
+			<div class="contacts-5-grid-main mt-4">
+				<div class="form-inner-cont">
+					<form
+						action="#"
+						method="post"
+						class="signin-form"
+						enctype="multipart/form-data"
+					>
+						{% csrf_token %}
+						<div class="form-grids">
+							<div class="form-input" data-aos="fade-down">
+								<input
+									type="text"
+									name="name"
+									placeholder="Enter your name *"
+									value="{{data.name}}"
+									required=""
+								/>
+							</div>
+							<div class="form-input" data-aos="fade-down">
+								<input
+									type="email"
+									name="email"
+									placeholder="Enter your email *"
+									value="{{data.email}}"
+									required
+								/>
+							</div>
+							<div class="form-input" data-aos="fade-up">
+								<input
+									type="text"
+									name="phone"
+									placeholder="Enter your Phone Number *"
+									value="{{data.phone}}"
+									required
+								/>
+							</div>
+							<div class="form-input" data-aos="fade-up">
+								<input
+									type="password"
+									name="password"
+									placeholder="Enter the Password *"
+									required
+								/>
+							</div>
+						</div>
+						<div class="form-input">
+							<textarea name="address" placeholder="Address *" required="">
+{{data.address}}</textarea
+							>
+						</div>
+						<div class="text-center mt-3">
+							<button class="btn btn-style btn-primary">Update</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- //contacts-5-grid -->
+	</div>
+</div>
+
+<!-- //contact-section -->
+<!-- footer -->
+{% endblock %}
