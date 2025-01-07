@@ -1,1 +1,1 @@
-Hate Speech Detector
+Hate Speech Detector | Python
